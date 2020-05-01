@@ -10,19 +10,21 @@ public class StepWritePost {
     TopicPage topicPage = new TopicPage();
 
     @Then("Open random topic")
-    public void openRandomTopic() { main.openRandomTopic(); }
+    public void openRandomTopic() { main.openRandomTopic().click(); }
 
     @Then("Click answer")
     public void clickAnswer() {
-        topicPage.buttonAnswerClick();
+        topicPage.buttonAnswerClick().click();
     }
 
     @Then("Write text in text box")
-    public void writeTextInTextBox(){ topicPage.inputTextBox(); }
+    public void writeTextInTextBox(){ topicPage.inputTextBox().val( "Разлито сакэ\n" +
+                                                                    "Самурай понурился\n" +
+                                                                    "Испорчен вечер"); }
 
     @Then("Send a response")
     public void sendAResponse() throws InterruptedException {
-        topicPage.sendResponse();
+        topicPage.sendResponse().click();
     }
 
     @Then("Check that your message is displayed")
@@ -31,7 +33,7 @@ public class StepWritePost {
     }
 
     @Then("Go to the main page")
-    public void goToTheMainPage() throws InterruptedException { topicPage.goToMainPage(); }
+    public void goToTheMainPage() throws InterruptedException { topicPage.goToMainPage().click(); }
 
     @Then("Repeat steps")
     public void repeatSteps() throws InterruptedException {

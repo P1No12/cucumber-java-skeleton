@@ -12,31 +12,27 @@ import static Setting.testSetting.USER_password;
 
 public class MainPage  {
 
-
-    private SelenideElement loginInput = $(By.id("id_username"));
-    private SelenideElement passwordInput = $(By.id("id_password"));
-    private ElementsCollection collection=  $$(By.xpath(
-            "//span[@class='thread-detail-replies' and not(preceding-sibling::span)]/ancestor::div[3]/a"));
-
-    public void openRandomTopic(){
-        collection.get((int) (collection.size()*Math.random())).should(Condition.visible).click();
+    public SelenideElement openRandomTopic(){
+        ElementsCollection collection=  $$(By.xpath(
+                "//span[@class='thread-detail-replies' and not(preceding-sibling::span)]/ancestor::div[3]/a"));
+        return collection.get((int) (collection.size()*Math.random())).should(Condition.visible);
     }
 
-    public void NavigationBarSignIn() {
-        $(By.xpath("//*[@type='button' and text() = 'Войти']")).should(Condition.visible).click();
+    public SelenideElement NavigationBarSignIn() {
+       return  $(By.xpath("//*[@type='button' and text() = 'Войти']")).should(Condition.visible);
     }
 
-    public void inputLogin(){
-         loginInput.val(USER_LOGIN);
+    public SelenideElement inputLogin(){
+        return $(By.id("id_username"));
     }
 
-    public void inputPassword(){
-         passwordInput.val(USER_password);
+    public SelenideElement inputPassword(){
+        return $(By.id("id_password"));
      }
 
 
-     public void buttonSignIn(){
-        $(By.xpath("//*[@class='modal-footer']/button")).should(Condition.visible).click();
+     public SelenideElement buttonSignIn(){
+        return $(By.xpath("//*[@class='modal-footer']/button")).should(Condition.visible);
      }
 
     public void checkVisibilityIcons(){

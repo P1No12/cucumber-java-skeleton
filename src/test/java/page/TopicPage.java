@@ -9,25 +9,17 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class TopicPage {
 
-    SelenideElement answer = $(By.xpath("//*[@class='col-sm-4 hidden-xs']/button"));
-    SelenideElement textBox = $(By.id("editor-textarea"));
-    SelenideElement buttonSendResponse = $(By.xpath("//*[@id='posting-mount']//*[text()='Отправить ответ']"));
-    SelenideElement buttonGoToMainPage = $(By.xpath("//*[@role='navigation']//*[contains(text(), 'Темы')]"));
-
-
-       public void buttonAnswerClick() {
-           answer.should(Condition.visible).click();
+       public SelenideElement buttonAnswerClick() {
+          return  $(By.xpath("//*[@class='col-sm-4 hidden-xs']/button")).should(Condition.visible);
        }
 
-       public void inputTextBox(){
-           textBox.val("Разлито сакэ\n" +
-                    "Самурай понурился\n" +
-                    "Испорчен вечер");
+       public SelenideElement inputTextBox(){
+           return $(By.id("editor-textarea"));
        }
 
-       public void sendResponse() throws InterruptedException {
+       public SelenideElement sendResponse() throws InterruptedException {
            Thread.sleep(2000);
-           buttonSendResponse.should(Condition.visible).click();
+           return $(By.xpath("//*[@id='posting-mount']//*[text()='Отправить ответ']")).should(Condition.visible);
        }
 
        public void checkMessageIsDisplayed(){
@@ -36,9 +28,9 @@ public class TopicPage {
                    .should(Condition.visible);
        }
 
-       public void goToMainPage() throws InterruptedException {
+       public SelenideElement goToMainPage() throws InterruptedException {
            Thread.sleep(2000);
-           buttonGoToMainPage.should(Condition.visible).click();
+           return $(By.xpath("//*[@role='navigation']//*[contains(text(), 'Темы')]")).should(Condition.visible);
        }
 
 
