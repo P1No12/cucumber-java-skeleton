@@ -1,7 +1,0 @@
-package Setting;
-
-public class Belly {
-    public void eat(int cukes) {
-
-    }
-}
