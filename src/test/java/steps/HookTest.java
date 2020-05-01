@@ -10,7 +10,5 @@ public class HookTest {
         testSetting.start();
     }
 
-    @After
-    public void SetClose() { testSetting.close();}
 
 }

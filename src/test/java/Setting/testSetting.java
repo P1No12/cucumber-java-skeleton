@@ -22,6 +22,5 @@ public class testSetting {
     }
 
     public static void close(){
-        WebDriverRunner.closeWebDriver();
     }
 }
