@@ -1,4 +1,4 @@
-package io.cucumber.skeleton;
+package Setting;
 
 public class Belly {
     public void eat(int cukes) {

@@ -20,9 +20,7 @@ public class StepWritePost {
     }
 
     @Then("Write text in text box")
-    public void writeTextInTextBox() {
-        topicPage.inputTextBox();
-    }
+    public void writeTextInTextBox(){ topicPage.inputTextBox(); }
 
     @Then("Send a response")
     public void sendAResponse() {
@@ -35,12 +33,10 @@ public class StepWritePost {
     }
 
     @Then("Go to the main page")
-    public void goToTheMainPage() {
-        topicPage.goToMainPage();
-    }
+    public void goToTheMainPage(){ topicPage.goToMainPage(); }
 
     @Then("Repeat steps")
-    public void repeatSteps() {
+    public void repeatSteps(){
         openRandomTopic();
         clickAnswer();
         writeTextInTextBox();

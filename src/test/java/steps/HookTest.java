@@ -1,7 +1,7 @@
 package steps;
 
 import io.cucumber.java.Before;
-import io.cucumber.skeleton.testSetting;
+import Setting.testSetting;
 
 public class HookTest {
     @Before

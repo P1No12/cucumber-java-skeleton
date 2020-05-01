@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import page.MainPage;
 
+import static Setting.testSetting.SITE_URL;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -14,14 +15,10 @@ public class loginStepDefs {
     MainPage main = new MainPage();
 
     @Then("Site open")
-    public void siteOpen() {
-        open("https://dev.n7lanit.ru");
-    }
+    public void siteOpen() { open(SITE_URL); }
 
     @Then("click navigation bar button sign in")
-    public void clickNavigationBarButtonSignIn() {
-        main.NavigationBarSignIn();
-    }
+    public void clickNavigationBarButtonSignIn() { main.NavigationBarSignIn(); }
 
     @Then("Input Login")
     public void inputLogin() {

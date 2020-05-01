@@ -6,16 +6,15 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.*;
-import static io.cucumber.skeleton.testSetting.USER_LOGIN;
-import static io.cucumber.skeleton.testSetting.USER_password;
+import static Setting.testSetting.USER_LOGIN;
+import static Setting.testSetting.USER_password;
 
 
 public class MainPage  {
-    static String SITE_URL = "https://dev.n7lanit.ru";
+
 
     private SelenideElement loginInput = $(By.id("id_username"));
     private SelenideElement passwordInput = $(By.id("id_password"));
-
     private ElementsCollection collection=  $$(By.xpath(
             "//span[@class='thread-detail-replies' and not(preceding-sibling::span)]/ancestor::div[3]/a"));
 
@@ -34,6 +33,7 @@ public class MainPage  {
     public void inputPassword(){
          passwordInput.val(USER_password);
      }
+
 
      public void buttonSignIn(){
         $(By.xpath("//*[@class='modal-footer']/button")).should(Condition.visible).click();
