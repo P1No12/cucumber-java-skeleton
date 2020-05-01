@@ -1,11 +1,11 @@
-package io.cucumber.skeleton;
+package steps;
 
+import io.cucumber.java.Before;
 import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.Cucumber;
-import org.junit.Before;
+
+import io.cucumber.skeleton.testSetting;
 import org.junit.runner.RunWith;
-import page.BasePage;
-import page.MainPage;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = {"src/test/resources"},
@@ -13,9 +13,5 @@ import page.MainPage;
         plugin =    {"pretty"})
 public class RunCucumberTest {
 
-    @Before
-    public void setUp(){
-
-    }
 
 }

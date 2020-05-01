@@ -16,17 +16,20 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class testSetting {
 
-    @Before
-    public void start(){
+    public static final String USER_LOGIN = "haiku";
+    public static final String USER_password = "123123Qq";
+
+
+    public static void start(){
         startMaximized= true;
         timeout= 7000;
         clearBrowserCookies();
         WebDriverRunner.clearBrowserCache();
 
-        MainPage main;
     }
 
-    
+/*
+
     @Test
     public void mainPage() throws InterruptedException {
 
@@ -64,6 +67,7 @@ public class testSetting {
         Thread.sleep(15000);
 
     }
+*/
 
 
 }
