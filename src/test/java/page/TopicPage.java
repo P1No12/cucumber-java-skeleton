@@ -5,6 +5,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import static Setting.testSetting.USER_LOGIN;
 import static com.codeborne.selenide.Selenide.$;
 
 public class TopicPage {
@@ -22,9 +23,8 @@ public class TopicPage {
            return $(By.xpath("//*[@id='posting-mount']//*[text()='Отправить ответ']")).should(Condition.visible);
        }
 
-       public void checkMessageIsDisplayed(){
-           $(By.xpath("//*[@class='panel-body']//*[text()='haiku' and 'Разлито сакэ' " +
-                   "and 'Самурай понурился' and 'Испорчен вечер']"))
+       public void checkMessageIsDisplayed(String arg0){
+           $(By.xpath("//*[@class='panel-body']//*[text()='" + USER_LOGIN + "' and '" + arg0 + "']"))
                    .should(Condition.visible);
        }
 
