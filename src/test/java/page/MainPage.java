@@ -40,7 +40,7 @@ public class MainPage  {
      }
 
     public void checkVisibilityIcons(){
-        $(By.xpath("//*[@id='user-menu-mount']//img[@class='user-avatar']")).should(Condition.visible);
+        $(By.xpath("//*[@id='user-menu-mount']//img[@class='user-avatar']")).should(Condition.image);
     }
 
 }
