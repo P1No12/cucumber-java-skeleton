@@ -25,7 +25,8 @@ public class TopicPage {
                     "Испорчен вечер");
        }
 
-       public void sendResponse() {
+       public void sendResponse() throws InterruptedException {
+           Thread.sleep(2000);
            buttonSendResponse.should(Condition.visible).click();
        }
 
@@ -35,7 +36,8 @@ public class TopicPage {
                    .should(Condition.visible);
        }
 
-       public void goToMainPage(){
+       public void goToMainPage() throws InterruptedException {
+           Thread.sleep(2000);
            buttonGoToMainPage.should(Condition.visible).click();
        }
 

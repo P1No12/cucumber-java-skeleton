@@ -1,11 +1,9 @@
 package Setting;
 
-import com.codeborne.selenide.*;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.By;
-import page.MainPage;
+
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
 
 import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -19,7 +17,11 @@ public class testSetting {
 
     public static void start(){
 
-        startMaximized= true;
-        timeout= 10000;
+        Configuration.startMaximized= true;
+        Configuration.timeout= 5000;
+    }
+
+    public static void close(){
+        WebDriverRunner.closeWebDriver();
     }
 }
