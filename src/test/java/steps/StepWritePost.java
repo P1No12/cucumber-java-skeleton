@@ -5,6 +5,8 @@ import io.cucumber.java.en.When;
 import page.MainPage;
 import page.TopicPage;
 
+import static Setting.testSetting.WRITE_TEXT;
+
 public class StepWritePost {
     MainPage main = new MainPage();
     TopicPage topicPage = new TopicPage();
@@ -17,31 +19,30 @@ public class StepWritePost {
         topicPage.buttonAnswerClick().click();
     }
 
-    @Then("Write text in text box {string}")
-    public void writeTextInTextBox(String arg0) { topicPage.inputTextBox().val(arg0); }
+    @Then("Write text in text box")
+    public void writeTextInTextBox() { topicPage.inputTextBox().val(WRITE_TEXT); }
 
     @Then("Send a response")
     public void sendAResponse() throws InterruptedException {
         topicPage.sendResponse().click();
     }
 
-    @Then("Check that your message is displayed {string}")
-    public void checkThatYourMessageIsDisplayed(String arg0) {
-        topicPage.checkMessageIsDisplayed(arg0);
+    @Then("Check that your message is displayed")
+    public void checkThatYourMessageIsDisplayed() {
+        topicPage.checkMessageIsDisplayed(WRITE_TEXT);
     }
 
     @Then("Go to the main page")
     public void goToTheMainPage() throws InterruptedException { topicPage.goToMainPage().click(); }
 
-    @Then("Repeat steps  {string}")
-    public void repeatSteps(String arg0) throws InterruptedException {
+    @Then("Repeat steps")
+    public void repeatSteps() throws InterruptedException {
         openRandomTopic();
         clickAnswer();
-        writeTextInTextBox(arg0);
+        writeTextInTextBox();
         sendAResponse();
-        checkThatYourMessageIsDisplayed(arg0);
+        checkThatYourMessageIsDisplayed();
         goToTheMainPage();
     }
-
 
 }

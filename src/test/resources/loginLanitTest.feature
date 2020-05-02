@@ -8,9 +8,9 @@
      Then Check visibility icons
      Then Open random topic
      Then Click answer
-     Then Write text in text box "Текст которого не было раньше"
+     Then Write text in text box
      Then Send a response
-     Then Check that your message is displayed "Текст которого не было раньше"
+     Then Check that your message is displayed
      Then Go to the main page
-     Then Repeat steps  "Текст которого не было раньше"
+     Then Repeat steps
 
