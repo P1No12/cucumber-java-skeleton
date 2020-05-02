@@ -19,7 +19,7 @@ public class TopicPage {
        }
 
        public SelenideElement sendResponse() throws InterruptedException {
-           Thread.sleep(2000);
+           Thread.sleep(800);
            return $(By.xpath("//*[@id='posting-mount']//*[text()='Отправить ответ']")).should(Condition.visible);
        }
 
@@ -29,7 +29,7 @@ public class TopicPage {
        }
 
        public SelenideElement goToMainPage() throws InterruptedException {
-           Thread.sleep(2000);
+           Thread.sleep(800);
            return $(By.xpath("//*[@role='navigation']//*[contains(text(), 'Темы')]")).should(Condition.visible);
        }
 
