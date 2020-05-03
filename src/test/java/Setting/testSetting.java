@@ -1,14 +1,6 @@
 package Setting;
 
 
-
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.WebDriverRunner;
-
-import static com.codeborne.selenide.Configuration.*;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.Wait;
-
 public class testSetting {
 
     public static final String USER_LOGIN = "haiku";
@@ -17,8 +9,8 @@ public class testSetting {
 
     public static void start(){
 
-        Configuration.startMaximized= true;
-        Configuration.timeout= 5000;
+        /*Configuration.startMaximized= true;
+        Configuration.timeout= 5000;*/
     }
 
     public static void close(){

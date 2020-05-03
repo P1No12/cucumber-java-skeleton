@@ -1,52 +1,58 @@
 package steps;
 
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import cucumber.api.java.ru.И;
+import cucumber.api.java.ru.Тогда;
 import page.MainPage;
 import page.TopicPage;
 
 import java.util.List;
 
+import static Setting.testSetting.SITE_URL;
+import static page.AbstractPage.getPageByTitle;
+
 public class StepWritePost {
-    MainPage main = new MainPage();
-    TopicPage topicPage = new TopicPage();
 
 
-    @Then("Open random topic")
-    public void openRandomTopic() { main.openRandomTopic().click(); }
+    @И("на {string} открыть  {string}")
+    public void наОткрыть(String str, String topic) throws ClassNotFoundException, InterruptedException {
+        Thread.sleep(3000);
+        getPageByTitle(str).getElementByName(topic).click();
+        Thread.sleep(5000);
 
-    @Then("Click answer")
-    public void clickAnswer() {
-        topicPage.buttonAnswerClick().click();
+    }
+    @И("на {string} кликнуть кнопку ответить {string}")
+    public void наКликнутьКнопкуОтветить(String str, String response) throws ClassNotFoundException, InterruptedException {
+        Thread.sleep(1000);
+        getPageByTitle(str).getElementByName(response).click();
     }
 
-    @Then("Write text in text box {word}")
-    public void writeTextInTextBoxTEST(String test)  {
-        topicPage.inputTextBox().val(test); }
-
-    @Then("Send a response")
-    public void sendAResponse() throws InterruptedException {
-        topicPage.sendResponse().click();
+    @И("на {string} написать текст {string} в форму ответа")
+    public void наНаписатьТекстВФормуОтвета(String str, String textBox) throws ClassNotFoundException, InterruptedException {
+        Thread.sleep(3000);
+        getPageByTitle(str).getElementByName(textBox).val(SITE_URL);
     }
 
-    @Then("Check that your message is displayed {word}")
-    public void checkThatYourMessageIsDisplayedTEST(String text) {
-        topicPage.checkMessageIsDisplayed(text);
+    @И("на {string} кликнуть на кнопку отправить ответ {string}")
+    public void наКликнутьНаКнопкуОтправитьОтвет(String str, String answer) throws ClassNotFoundException, InterruptedException {
+        Thread.sleep(3000);
+        getPageByTitle(str).getElementByName(answer).click();
     }
 
-    @Then("Go to the main page")
-    public void goToTheMainPage() throws InterruptedException { topicPage.goToMainPage().click(); }
+    @И("на {string} проверить появился ли ответ появился ли {string}")
+    public void наПроверитьПоявилсяЛиОтветПоявилсяЛи(String str, String checkText) throws ClassNotFoundException, InterruptedException {
+        Thread.sleep(3000);
+        getPageByTitle(str).getElementByName(checkText);
+    }
 
-    @Then("Repeat steps {word}")
-    public void repeatStepsTEST(String text) throws InterruptedException {
-        openRandomTopic();
-        clickAnswer();
-        writeTextInTextBoxTEST(text);
-        sendAResponse();
-        checkThatYourMessageIsDisplayedTEST(text);
-        goToTheMainPage();
+    @И("на {string} перейти на вкладку темы {string}")
+    public void наПерейтиНаВкладкуТемы(String str, String theme) throws ClassNotFoundException, InterruptedException {
+        Thread.sleep(3000);
+        getPageByTitle(str).getElementByName(theme).click();
     }
 
 
+    @Тогда("повторить шаги")
+    public void повторитьШаги() {
+
+    }
 }

@@ -4,39 +4,30 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import page.annotations.Page;
 
 import static com.codeborne.selenide.Selenide.*;
-import static Setting.testSetting.USER_LOGIN;
-import static Setting.testSetting.USER_password;
+import page.annotations.Element;
 
 
-public class MainPage  {
+@Page(title = "Главная страница" , url = "https://dev.n7lanit.ru")
+public class MainPage extends AbstractPage {
 
-    public SelenideElement openRandomTopic(){
-        ElementsCollection collection=  $$(By.xpath(
-                "//span[@class='thread-detail-replies' and not(preceding-sibling::span)]/ancestor::div[3]/a"));
-        return collection.get((int) (collection.size()*Math.random())).should(Condition.visible);
-    }
-
+    @Element("Войти")
     public SelenideElement NavigationBarSignIn() {
        return  $(By.xpath("//*[@type='button' and text() = 'Войти']")).should(Condition.visible);
     }
 
-    public SelenideElement inputLogin(){
-        return $(By.id("id_username"));
+    @Element("Иконка")
+    public SelenideElement checkVisibilityIcons(){
+        return $(By.xpath("//*[@id='user-menu-mount']//img[@class='user-avatar']"));
     }
 
-    public SelenideElement inputPassword(){
-        return $(By.id("id_password"));
-     }
-
-
-     public SelenideElement buttonSignIn(){
-        return $(By.xpath("//*[@class='modal-footer']/button")).should(Condition.visible);
-     }
-
-    public void checkVisibilityIcons(){
-        $(By.xpath("//*[@id='user-menu-mount']//img[@class='user-avatar']")).should(Condition.image);
+    @Element("Случайный топик")
+    public SelenideElement openRandomTopic(){
+        ElementsCollection collection=  $$(By.xpath(
+                "//span[@class='thread-detail-replies' and not(preceding-sibling::span)]/ancestor::div[3]/a"));
+        return collection.get((int) (collection.size()*Math.random()));
     }
 
 }
