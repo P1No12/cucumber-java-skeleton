@@ -1,28 +1,23 @@
 package page;
 
 
-import Setting.RunCucumberTest;
 import com.codeborne.selenide.SelenideElement;
 import org.reflections.Reflections;
 import page.annotations.Element;
 import page.annotations.Page;
-import steps.HookTest;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.LinkedList;
-import java.util.Set;
+
+import java.util.*;
+
 
 public class AbstractPage {
 
-       static   Reflections reflections = new Reflections(AbstractPage.class.getPackage().getName());
-       static Set<Class<?>> CLASSES = reflections.getTypesAnnotatedWith(Page.class);
+    static final Reflections reflections = new Reflections("page");
+    static Set<Class<?>> CLASSES = reflections.getTypesAnnotatedWith(Page.class);
 
 
-      /*  for(Class cls: classes) {
-            Page target = (Page) cls.getAnnotation(.class);
-            System.out.println(target.value());
-        }*/
 
    /* static final LinkedList<Class<? extends AbstractPage>> CLASSES = new LinkedList<>();
 
@@ -31,7 +26,6 @@ public class AbstractPage {
         CLASSES.add(TopicPage.class);
         CLASSES.add(loginPage.class);
     }*/
-
 
     public static String getUrlByTitle(String title) throws ClassNotFoundException {
 
@@ -46,7 +40,7 @@ public class AbstractPage {
     }
 
     public static AbstractPage getPageByTitle(String title) throws ClassNotFoundException {
-        for (Class<? > clazz : CLASSES) {
+        for (Class<?> clazz : CLASSES) {
             if (clazz.isAnnotationPresent(Page.class)) {
                 if (clazz.getAnnotation(Page.class).title().equals(title)) {
                     try {
