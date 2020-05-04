@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.LinkedList;
 
-public class AbstractPage extends ClassLoader{
+public class AbstractPage {
 
 
     static final LinkedList<Class<? extends AbstractPage>> CLASSES = new LinkedList<>();
