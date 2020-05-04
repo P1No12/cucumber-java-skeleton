@@ -2,7 +2,6 @@ package page;
 
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.WebElement;
 import page.annotations.Element;
 import page.annotations.Page;
 
@@ -10,19 +9,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.LinkedList;
 
-public class AbstractPage {
+public class AbstractPage extends ClassLoader{
 
-  /*      private static List<Class<Class>> getAllClassesFrom(String packageName) {
-            return new Reflections(packageName, new SubTypesScanner(false))
-                    .getAllTypes()
-                    .stream()
-                    .map(name -> {
-                        return Class.class;
-                    })
-                    .filter(Objects::nonNull)
-                    .collect(Collectors.toList());
-        }*/
-    Class<?> title;
 
     static final LinkedList<Class<? extends AbstractPage>> CLASSES = new LinkedList<>();
 
@@ -32,7 +20,9 @@ public class AbstractPage {
         CLASSES.add(loginPage.class);
     }
 
+
     public static String getUrlByTitle(String title) throws ClassNotFoundException {
+
         for (Class<? extends AbstractPage> clazz : CLASSES) {
             if (clazz.isAnnotationPresent(Page.class)) {
                 if (clazz.getAnnotation(Page.class).title().equals(title)) {
@@ -73,18 +63,6 @@ public class AbstractPage {
            }
 
         throw new RuntimeException(" вылет на получение элемента");
-    }
-
-    public SelenideElement putElementByName(String name) throws InvocationTargetException, IllegalAccessException {
-        for (Method method : this.getClass().getMethods()) {
-            if (method.isAnnotationPresent(Element.class)) {
-                Element element = method.getAnnotation(Element.class);
-                if (element.value().equals(name)) {
-                    return (SelenideElement) method.invoke(this);
-                }
-            }
-        }
-        throw new RuntimeException(" вылет на получение елемента");
     }
 
 }

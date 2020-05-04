@@ -7,17 +7,16 @@ import org.openqa.selenium.By;
 import page.annotations.Element;
 import page.annotations.Page;
 
-import static Setting.testSetting.SITE_URL;
-import static Setting.testSetting.USER_LOGIN;
+import static Setting.testSetting.*;
 import static com.codeborne.selenide.Selenide.$;
 
 
-@Page(title = "Страница топика",url = " ")
+@Page(title = "Страница топика", url = "")
 public class TopicPage extends AbstractPage{
 
     @Element("Ответить")
        public SelenideElement buttonAnswerClick() {
-          return  $(By.xpath("//*[@class='col-sm-4 hidden-xs']/button")).should(Condition.visible);
+          return  $(By.xpath("//*[@class='col-sm-4 hidden-xs']/button"));
        }
     @Element("Текст")
        public SelenideElement inputTextBox(){
@@ -25,17 +24,15 @@ public class TopicPage extends AbstractPage{
        }
 
     @Element("Отправить ответ")
-       public SelenideElement sendResponse() throws InterruptedException {
-           Thread.sleep(800);
-           return $(By.xpath("//*[@id='posting-mount']//*[text()='Отправить ответ']")).should(Condition.visible);
+       public SelenideElement sendResponse() {
+           return $(By.xpath("//*[@id='posting-mount']//*[text()='Отправить ответ']"));
        }
     @Element("Ответ")
        public SelenideElement checkMessageIsDisplayed(){
-           return $(By.xpath("//*[@class='panel-body']//*[text()='" + USER_LOGIN + "' and '" + SITE_URL + "']"));
+           return $(By.xpath("//*[@class='panel-body']//*[text()='" + USER_LOGIN + "' and '" + TEXT_MASSAGE + "']"));
        }
     @Element("Темы")
-       public SelenideElement goToMainPage() throws InterruptedException {
-           Thread.sleep(800);
+       public SelenideElement goToMainPage() {
            return $(By.xpath("//*[@role='navigation']//*[contains(text(), 'Темы')]"));
        }
 
