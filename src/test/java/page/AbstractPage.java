@@ -1,29 +1,41 @@
 package page;
 
 
+import Setting.RunCucumberTest;
 import com.codeborne.selenide.SelenideElement;
+import org.reflections.Reflections;
 import page.annotations.Element;
 import page.annotations.Page;
+import steps.HookTest;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.LinkedList;
+import java.util.Set;
 
 public class AbstractPage {
 
+       static   Reflections reflections = new Reflections(AbstractPage.class.getPackage().getName());
+       static Set<Class<?>> CLASSES = reflections.getTypesAnnotatedWith(Page.class);
 
-    static final LinkedList<Class<? extends AbstractPage>> CLASSES = new LinkedList<>();
+
+      /*  for(Class cls: classes) {
+            Page target = (Page) cls.getAnnotation(.class);
+            System.out.println(target.value());
+        }*/
+
+   /* static final LinkedList<Class<? extends AbstractPage>> CLASSES = new LinkedList<>();
 
     static {
         CLASSES.add(MainPage.class);
         CLASSES.add(TopicPage.class);
         CLASSES.add(loginPage.class);
-    }
+    }*/
 
 
     public static String getUrlByTitle(String title) throws ClassNotFoundException {
 
-        for (Class<? extends AbstractPage> clazz : CLASSES) {
+        for (Class<?> clazz : CLASSES) {
             if (clazz.isAnnotationPresent(Page.class)) {
                 if (clazz.getAnnotation(Page.class).title().equals(title)) {
                     return clazz.getAnnotation(Page.class).url();
@@ -34,11 +46,11 @@ public class AbstractPage {
     }
 
     public static AbstractPage getPageByTitle(String title) throws ClassNotFoundException {
-        for (Class<? extends AbstractPage> clazz : CLASSES) {
+        for (Class<? > clazz : CLASSES) {
             if (clazz.isAnnotationPresent(Page.class)) {
                 if (clazz.getAnnotation(Page.class).title().equals(title)) {
                     try {
-                        return clazz.newInstance();
+                        return (AbstractPage) clazz.newInstance();
                     } catch (InstantiationException | IllegalAccessException e) {
                         e.printStackTrace();
                     }

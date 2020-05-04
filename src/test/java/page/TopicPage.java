@@ -36,5 +36,4 @@ public class TopicPage extends AbstractPage{
            return $(By.xpath("//*[@role='navigation']//*[contains(text(), 'Темы')]"));
        }
 
-
 }
