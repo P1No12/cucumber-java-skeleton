@@ -18,7 +18,6 @@ public class AbstractPage {
     static Set<Class<?>> CLASSES = reflections.getTypesAnnotatedWith(Page.class);
 
 
-
    /* static final LinkedList<Class<? extends AbstractPage>> CLASSES = new LinkedList<>();
 
     static {

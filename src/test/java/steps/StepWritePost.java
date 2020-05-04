@@ -28,19 +28,21 @@ public class StepWritePost {
 
 
     @И("на {string} кликнуть на кнопку отправить ответ {string}")
-    public void наКликнутьНаКнопкуОтправитьОтвет(String str, String answer) throws ClassNotFoundException {
+    public void наКликнутьНаКнопкуОтправитьОтвет(String str, String answer) throws ClassNotFoundException, InterruptedException {
+        Thread.sleep(800);
         getPageByTitle(str).getElementByName(answer).should(Condition.visible).click();
     }
 
 
     @И("на {string} проверить появился ли ответ появился ли {string}")
     public void наПроверитьПоявилсяЛиОтветПоявилсяЛи(String str, String checkText) throws ClassNotFoundException, InterruptedException {
-        Thread.sleep(800);
+        Thread.sleep(1000);
         getPageByTitle(str).getElementByName(checkText).should(Condition.visible);
     }
 
     @И("на {string} перейти на вкладку темы {string}")
-    public void наПерейтиНаВкладкуТемы(String str, String theme) throws ClassNotFoundException {
+    public void наПерейтиНаВкладкуТемы(String str, String theme) throws ClassNotFoundException, InterruptedException {
+        Thread.sleep(800);
         getPageByTitle(str).getElementByName(theme).should(Condition.visible).click();
     }
 
