@@ -27,7 +27,6 @@ public class AbstractPage {
     }*/
 
     public static String getUrlByTitle(String title) throws ClassNotFoundException {
-
         for (Class<?> clazz : CLASSES) {
             if (clazz.isAnnotationPresent(Page.class)) {
                 if (clazz.getAnnotation(Page.class).title().equals(title)) {

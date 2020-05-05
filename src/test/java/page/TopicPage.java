@@ -18,6 +18,7 @@ public class TopicPage extends AbstractPage{
        public SelenideElement buttonAnswerClick() {
           return  $(By.xpath("//*[@class='col-sm-4 hidden-xs']/button"));
        }
+
     @Element("Текст")
        public SelenideElement inputTextBox(){
            return $(By.id("editor-textarea"));
