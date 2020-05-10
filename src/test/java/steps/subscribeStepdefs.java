@@ -14,7 +14,6 @@ import static com.codeborne.selenide.Selenide.$;
 import static page.AbstractPage.getPageByTitle;
 
 public class subscribeStepdefs {
-    ElementsCollection collection;
     List<String> list = new ArrayList<>();
     @И("на {string} нажать на кнопку подписки {string}")
     public void наНажатьНаКнопкуПодписки(String str, String inactive) throws ClassNotFoundException, InterruptedException {
