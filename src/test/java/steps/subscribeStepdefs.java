@@ -14,11 +14,9 @@ import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$;
 import static page.AbstractPage.getPageByTitle;
-@Epic("BBBBB")
 public class subscribeStepdefs {
     List<String> list = new ArrayList<>();
 
-    @Feature("ccccc")
     @И("на {string} нажать на кнопку подписки {string}")
     public void наНажатьНаКнопкуПодписки(String str, String inactive) throws ClassNotFoundException, InterruptedException {
         Thread.sleep(1000);
