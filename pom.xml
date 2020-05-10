@@ -19,12 +19,12 @@
     </properties>
 
     <dependencies>
-        <dependency>
+       <!-- <dependency>
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>
             <version>0.9.12</version>
         </dependency>
-
+-->
 
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -56,12 +56,14 @@
             <version>5.11.1</version>
         </dependency>
 
+
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-junit4</artifactId>
+            <artifactId>allure-cucumber3-jvm</artifactId>
             <version>2.13.3</version>
-            <scope>test</scope>
         </dependency>
+
+
 
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -86,16 +88,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
-                    <testFailureIgnore>false</testFailureIgnore>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                        -Dcucumber.options="--plugin io.qameta.allure.cucumber3jvm.AllureCucumber3Jvm"
                     </argLine>
-                    <properties>
-                        <property>
-                            <name>listener</name>
-                            <value>io.qameta.allure.junit4.AllureJunit4</value>
-                        </property>
-                    </properties>
                 </configuration>
                 <dependencies>
                     <dependency>

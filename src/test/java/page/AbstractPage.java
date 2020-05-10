@@ -3,7 +3,7 @@ package page;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import org.reflections.Reflections;
+//import org.reflections.Reflections;
 import page.annotations.Element;
 import page.annotations.Page;
 
@@ -15,17 +15,18 @@ import java.util.*;
 
 public class    AbstractPage {
 
-    static final Reflections reflections = new Reflections("page");
+   /* static final Reflections reflections = new Reflections("page");
     static Set<Class<?>> CLASSES = reflections.getTypesAnnotatedWith(Page.class);
+*/
 
-
-   /* static final LinkedList<Class<? extends AbstractPage>> CLASSES = new LinkedList<>();
+    static final LinkedList<Class<? extends AbstractPage>> CLASSES = new LinkedList<>();
 
     static {
         CLASSES.add(MainPage.class);
         CLASSES.add(TopicPage.class);
         CLASSES.add(loginPage.class);
-    }*/
+        CLASSES.add(subscribedPage.class);
+    }
 
     public static String getUrlByTitle(String title) throws ClassNotFoundException {
         for (Class<?> clazz : CLASSES) {
