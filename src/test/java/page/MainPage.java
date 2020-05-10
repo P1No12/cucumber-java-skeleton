@@ -15,7 +15,7 @@ public class MainPage extends AbstractPage {
 
     @Element("Войти")
     public SelenideElement NavigationBarSignIn() {
-       return  $(By.xpath("//*[@type='button' and text() = 'Войти']")).should(Condition.visible);
+       return  $(By.xpath("//*[@type='button' and text() = 'Войти']"));
     }
 
     @Element("Иконка")

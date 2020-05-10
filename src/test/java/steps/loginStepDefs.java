@@ -13,7 +13,7 @@ public class loginStepDefs {
     @И("открываем страницу {string}")
     public void открываемСтраницу(String site) throws ClassNotFoundException {
         open(getUrlByTitle(site));
-    }
+        }
 
     @И("на {string} кликнуть в навигационном баре кнопку войти {string}")
     public void наКликнутьВНавигационномБареКнопкуВойти(String str, String nameEL) throws ClassNotFoundException {

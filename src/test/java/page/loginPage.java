@@ -24,7 +24,7 @@ public class loginPage extends AbstractPage {
 
     @Element("Кнопка войти")
     public SelenideElement buttonSignIn(){
-        return $(By.xpath("//*[@class='modal-footer']/button")).should(Condition.visible);
+        return $(By.xpath("//*[@class='modal-footer']/button"));
     }
 
 }
