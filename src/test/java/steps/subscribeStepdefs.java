@@ -47,8 +47,8 @@ public class subscribeStepdefs {
         }
     }
 
-    @И("на {string} {string} от всех {string}")
-    public void наОтВсех(String str, String unsubscribe, String mySubscribe) throws ClassNotFoundException, InterruptedException {
+    @И("на {string} {string} от всех подписок на которые вы подписались ранее в этом сценарии")
+    public void наОтВсехПодписокНаКоторыеВыПодписалисьРанееВЭтомСценарии(String str, String unsubscribe) throws ClassNotFoundException, InterruptedException {
         Thread.sleep(2000);
 
         for(String s: list){
@@ -65,5 +65,6 @@ public class subscribeStepdefs {
 
         Thread.sleep(5000);
     }
+
 
 }
