@@ -15,9 +15,9 @@ public class testSetting {
 
 
     public static void start(){
-      //  System.setProperty("webdriver.chrome.driver", "C:\\chromedriver\\chromedriver.exe");
-        //WebDriver driver = new ChromeDriver();
-      //  driver.manage().window().maximize();
+      // System.setProperty("webdriver.chrome.driver", "C:\\chromedriver\\chromedriver.exe");
+       // WebDriver driver = new ChromeDriver();
+       // driver.manage().window().maximize();
       //  WebDriverRunner.setWebDriver(driver);
         Configuration.timeout = 6000;
         Configuration.startMaximized= true;
