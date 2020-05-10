@@ -17,7 +17,8 @@ public class loginStepDefs {
         }
 
     @И("на {string} кликнуть в навигационном баре кнопку войти {string}")
-    public void наКликнутьВНавигационномБареКнопкуВойти(String str, String nameEL) throws ClassNotFoundException {
+    public void наКликнутьВНавигационномБареКнопкуВойти(String str, String nameEL) throws ClassNotFoundException, InterruptedException {
+        Thread.sleep(800);
         getPageByTitle(str).getElementByName(nameEL).click();
 
     }

@@ -19,7 +19,7 @@ public class subscribeStepdefs {
 
     @И("на {string} нажать на кнопку подписки {string}")
     public void наНажатьНаКнопкуПодписки(String str, String inactive) throws ClassNotFoundException, InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(800);
         SelenideElement element= getPageByTitle(str).getElementByName(inactive);
         element.click();
         list.add($(By.xpath("//*[@class='list-group-item thread-new']//*[@class='col-sm-2 col-md-2 hidden-xs']//div[@class='col-xs-12 hidden-xs hidden-sm']" +
@@ -30,19 +30,19 @@ public class subscribeStepdefs {
 
     @И("на {string} в выпадающем меню нажать {string}")
     public void наВВыпадающемМенюНажать(String str, String sub) throws ClassNotFoundException, InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(800);
         getPageByTitle(str).getElementByName(sub).should(Condition.visible).click();
     }
 
     @И("на {string} нажать на кнопку {string}")
     public void наНажатьНаКнопку(String str, String subscribes) throws ClassNotFoundException, InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(800);
         getPageByTitle(str).getElementByName(subscribes).should(Condition.visible).click();
     }
 
     @И("Проверить – что среди отображающихся подписок есть те, на которые вы подписались ранее в этом сценарии")
     public void проверитьЧтоСредиОтображающихсяПодписокЕстьТеНаКоторыеВыПодписалисьРанееВЭтомСценарии()  throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(800);
         for(String s: list){
             $(By.xpath("//*[@href='"+ s +"']")).should(Condition.visible);
         }
@@ -50,7 +50,7 @@ public class subscribeStepdefs {
 
     @И("на {string} {string} от всех подписок на которые вы подписались ранее в этом сценарии")
     public void наОтВсехПодписокНаКоторыеВыПодписалисьРанееВЭтомСценарии(String str, String unsubscribe) throws ClassNotFoundException, InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(800);
 
         for(String s: list){
             $(By.xpath("//*[@href='"+ s +"']/ancestor::div[4]//*[@class='col-sm-2 col-md-2 hidden-xs']//*[@class='col-xs-12 hidden-xs hidden-sm']" +
@@ -64,7 +64,6 @@ public class subscribeStepdefs {
             getPageByTitle(str).getElementByName(unsubscribe).click();
         }*/
 
-        Thread.sleep(5000);
     }
 
 
