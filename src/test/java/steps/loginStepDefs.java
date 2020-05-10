@@ -12,7 +12,8 @@ import static page.AbstractPage.getUrlByTitle;
 public class loginStepDefs {
 
     @И("открываем страницу {string}")
-    public void открываемСтраницу(String site) throws ClassNotFoundException {
+    public void открываемСтраницу(String site) throws ClassNotFoundException, InterruptedException {
+        Thread.sleep(1000);
         open(getUrlByTitle(site));
         }
 
@@ -25,7 +26,7 @@ public class loginStepDefs {
 
     @И("на {string} ввести логин {string}")
     public void наВвестиЛогин(String str, String login) throws ClassNotFoundException, InterruptedException {
-        Thread.sleep(800);
+        Thread.sleep(1000);
        getPageByTitle(str).getElementByName(login).val(USER_LOGIN);
     }
 
