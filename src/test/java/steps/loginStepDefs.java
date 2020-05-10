@@ -18,13 +18,14 @@ public class loginStepDefs {
 
     @И("на {string} кликнуть в навигационном баре кнопку войти {string}")
     public void наКликнутьВНавигационномБареКнопкуВойти(String str, String nameEL) throws ClassNotFoundException, InterruptedException {
-        Thread.sleep(800);
+        Thread.sleep(2000);
         getPageByTitle(str).getElementByName(nameEL).click();
 
     }
 
     @И("на {string} ввести логин {string}")
-    public void наВвестиЛогин(String str, String login) throws  ClassNotFoundException {
+    public void наВвестиЛогин(String str, String login) throws ClassNotFoundException, InterruptedException {
+        Thread.sleep(800);
        getPageByTitle(str).getElementByName(login).val(USER_LOGIN);
     }
 
