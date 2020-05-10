@@ -1,6 +1,7 @@
 package page;
 
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.reflections.Reflections;
 import page.annotations.Element;
@@ -12,7 +13,7 @@ import java.lang.reflect.Method;
 import java.util.*;
 
 
-public class AbstractPage {
+public class    AbstractPage {
 
     static final Reflections reflections = new Reflections("page");
     static Set<Class<?>> CLASSES = reflections.getTypesAnnotatedWith(Page.class);
@@ -67,6 +68,22 @@ public class AbstractPage {
            }
 
         throw new RuntimeException(" вылет на получение элемента");
+    }
+    public ElementsCollection getElementsByName(String name) {
+        for (Method method : this.getClass().getMethods()) {
+            if (method.isAnnotationPresent(Element.class)) {
+                Element element = method.getAnnotation(Element.class);
+                if (element.value().equals(name)) {
+                    try {
+                        return (ElementsCollection) method.invoke(this);
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+
+        throw new RuntimeException(" вылет на получение элементов");
     }
 
 }
