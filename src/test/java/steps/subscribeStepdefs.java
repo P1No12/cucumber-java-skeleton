@@ -15,15 +15,14 @@ import java.util.List;
 import static com.codeborne.selenide.Selenide.$;
 import static page.AbstractPage.getPageByTitle;
 public class subscribeStepdefs {
-    List<String> list = new ArrayList<>();
+    List<String> listSubscribe = new ArrayList<>();
 
     @И("на {string} нажать на кнопку подписки {string}")
     public void наНажатьНаКнопкуПодписки(String str, String inactive) throws ClassNotFoundException, InterruptedException {
         Thread.sleep(800);
-        SelenideElement element= getPageByTitle(str).getElementByName(inactive);
-        element.click();
-        list.add($(By.xpath("//*[@class='list-group-item thread-new']//*[@class='col-sm-2 col-md-2 hidden-xs']//div[@class='col-xs-12 hidden-xs hidden-sm']" +
-                "//*[@class='btn-group open']/button/ancestor::div[6]//a[@class='item-title thread-title']")).getAttribute("href")
+        getPageByTitle(str).getElementByName(inactive).click();
+
+        listSubscribe.add(getPageByTitle(str).getElementByName("Выбранный топик").getAttribute("href")
                 .replaceAll("https:\\/\\/dev.n7lanit.ru",""));
 
     }
@@ -43,7 +42,7 @@ public class subscribeStepdefs {
     @И("Проверить – что среди отображающихся подписок есть те, на которые вы подписались ранее в этом сценарии")
     public void проверитьЧтоСредиОтображающихсяПодписокЕстьТеНаКоторыеВыПодписалисьРанееВЭтомСценарии()  throws InterruptedException {
         Thread.sleep(800);
-        for(String s: list){
+        for(String s: listSubscribe){
             $(By.xpath("//*[@href='"+ s +"']")).should(Condition.visible);
         }
     }
@@ -52,19 +51,12 @@ public class subscribeStepdefs {
     public void наОтВсехПодписокНаКоторыеВыПодписалисьРанееВЭтомСценарии(String str, String unsubscribe) throws ClassNotFoundException, InterruptedException {
         Thread.sleep(800);
 
-        for(String s: list){
+        for(String s: listSubscribe){
             $(By.xpath("//*[@href='"+ s +"']/ancestor::div[4]//*[@class='col-sm-2 col-md-2 hidden-xs']//*[@class='col-xs-12 hidden-xs hidden-sm']" +
                     "//button[@type='button']")).click();
             getPageByTitle(str).getElementByName(unsubscribe).click();
         }
-        //*[@href='/t/newtopic/936/']/ancestor::div[4]//*[@class='col-sm-2 col-md-2 hidden-xs']//*[@class='col-xs-12 hidden-xs hidden-sm']//button[@type='button']
-//*[@href='/t/newtopic/936/']/ancestor::div[4]//*[@class='col-sm-2 col-md-2 hidden-xs']//button[@type='button']
-    /*    for(SelenideElement x: getPageByTitle(str).getElementsByName(mySubscribe)){
-            x.click();
-            getPageByTitle(str).getElementByName(unsubscribe).click();
-        }*/
 
     }
-
 
 }

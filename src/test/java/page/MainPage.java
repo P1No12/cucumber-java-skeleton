@@ -45,5 +45,10 @@ public class MainPage extends AbstractPage {
         return $(By.xpath("//ul[@class='nav nav-pills']//a[text()='Подписки']"));
     }
 
+    @Element("Выбранный топик")
+    public SelenideElement selectedTopic(){
+        return $(By.xpath("//*[@class='col-sm-2 col-md-2 hidden-xs']//div[@class='col-xs-12 hidden-xs hidden-sm']" +
+                "//*[@class='btn-group open']/button/ancestor::div[6]//a[@class='item-title thread-title']"));
+    }
 
 }

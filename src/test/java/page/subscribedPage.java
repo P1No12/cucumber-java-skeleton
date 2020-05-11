@@ -13,7 +13,7 @@
     @Page(title = "Страница подписок", url =  "https://dev.n7lanit.ru/subscribed/")
     public class subscribedPage extends AbstractPage{
 
-        @Element("")
+        @Element("Выпадающий список")
         public SelenideElement subscriberMenu(){
             return $(By.xpath("//div[@class='col-sm-2 col-md-2 hidden-xs']//div[@class='col-xs-12 hidden-md hidden-lg']" +
                     "/button[@type='button']/span[text()='star_half']/.."));
@@ -30,5 +30,6 @@
             ElementsCollection collection=  $$(By.xpath("//div[@class='col-sm-2 col-md-2 hidden-xs']//div[@class='col-xs-12 hidden-xs hidden-sm']//*[@class='btn-group']/button"));
             return collection;
         }
+
 
     }
