@@ -27,8 +27,11 @@
 
         @Element("Мои подписки")
         public ElementsCollection mySubscribe(){
-            ElementsCollection collection=  $$(By.xpath("//div[@class='col-sm-2 col-md-2 hidden-xs']//div[@class='col-xs-12 hidden-xs hidden-sm']//*[@class='btn-group']/button"));
+            ElementsCollection collection=  $$(By.xpath("//a[@class='item-title thread-title']"));
             return collection;
+
+            /*ElementsCollection collection=  $$(By.xpath("//div[@class='col-sm-2 col-md-2 hidden-xs']//div[@class='col-xs-12 hidden-xs hidden-sm']//*[@class='btn-group']/button"));
+            return collection;*/
         }
 
 

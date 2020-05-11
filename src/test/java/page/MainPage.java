@@ -32,7 +32,7 @@ public class MainPage extends AbstractPage {
     @Element("Кнопка неактивна")
     public SelenideElement subscribeMenu(){
         ElementsCollection collection=  $$(By.xpath(
-                "//*[@class='list-group-item thread-new']//*[@class='col-sm-2 col-md-2 hidden-xs']//div[@class='col-xs-12 hidden-xs hidden-sm']//*[@class='btn-group']/button"));
+                "//*[@class='list-group-item thread-new']//*[@class='col-sm-2 col-md-2 hidden-xs']//div[@class='col-xs-12 hidden-xs hidden-sm']//*[@class='btn-group']/button/span[text()='star_border']"));
         return collection.get((int) (collection.size()*Math.random()));
     }
     @Element("Подписаться")
@@ -47,8 +47,7 @@ public class MainPage extends AbstractPage {
 
     @Element("Выбранный топик")
     public SelenideElement selectedTopic(){
-        return $(By.xpath("//*[@class='col-sm-2 col-md-2 hidden-xs']//div[@class='col-xs-12 hidden-xs hidden-sm']" +
-                "//*[@class='btn-group open']/button/ancestor::div[6]//a[@class='item-title thread-title']"));
+        return $(By.xpath("//*[@class='btn-group open']/button/ancestor::div[6]//a[@class='item-title thread-title']"));
     }
 
 }
