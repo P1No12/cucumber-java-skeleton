@@ -1,5 +1,6 @@
 package steps;
 
+import Setting.testSetting;
 import com.codeborne.selenide.WebDriverRunner;
 import com.google.common.io.Files;
 import cucumber.api.Scenario;
@@ -24,11 +25,16 @@ public class HookTest {
     public void before() {
       start();
     }
+    @AfterStep
+    public void afterStep(){
+        testSetting.screenshot();
+    }
 
     @After
     public void after(cucumber.api.Scenario scenario) {
-
-        screenshot();
+        if(scenario.isFailed()) {
+            screenshot();
+        }
 
         close();
 

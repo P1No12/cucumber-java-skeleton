@@ -30,7 +30,7 @@ public class testSetting {
        // Configuration.startMaximized= true;
     }
 
-    @Attachment(type = "image/png")
+    @Attachment(value = "Screenshot", type = "image/png")
     public static byte[] screenshot()/* throws IOException */ {
         try {
             File screen = ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.FILE);
