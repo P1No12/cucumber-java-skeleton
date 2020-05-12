@@ -7,6 +7,7 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.AfterStep;
 import cucumber.api.java.Before;
+import cucumber.api.java.BeforeStep;
 import io.qameta.allure.Attachment;
 import javafx.application.Application;
 import org.openqa.selenium.OutputType;
@@ -25,8 +26,8 @@ public class HookTest {
     public void before() {
       start();
     }
-    @AfterStep
-    public void afterStep(){
+    @BeforeStep
+    public void beforeStep(){
         testSetting.screenshot();
     }
 

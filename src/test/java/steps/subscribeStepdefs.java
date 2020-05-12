@@ -6,8 +6,10 @@ import com.codeborne.selenide.ElementsContainer;
 import com.codeborne.selenide.SelenideElement;
 import cucumber.api.java.bs.A;
 import cucumber.api.java.ru.И;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import page.subscribedPage;
 import Setting.testSetting;
@@ -22,6 +24,8 @@ import static page.AbstractPage.getPageByTitle;
 public class subscribeStepdefs {
     List<String> listSubscribe = new ArrayList<>();
     List<SelenideElement> collection = new ArrayList<>();
+
+    @Step("Добавить ссылку на Сбербанк")
     @И("на {string} нажать на кнопку подписки {string}")
     public void наНажатьНаКнопкуПодписки(String str, String inactive) throws ClassNotFoundException, InterruptedException {
         Thread.sleep(800);
