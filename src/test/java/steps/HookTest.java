@@ -24,16 +24,7 @@ public class HookTest {
     public void before() {
       start();
     }
-    @AfterStep
-    @Attachment(type = "image/png")
-    public static byte[] screenshot1()/* throws IOException */ {
-        try {
-            File screen = ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.FILE);
-            return Files.toByteArray(screen);
-        } catch (IOException e) {
-            return null;
-        }
-    }
+
     @After
     public void after(cucumber.api.Scenario scenario) {
 
