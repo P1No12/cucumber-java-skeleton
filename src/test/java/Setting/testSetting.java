@@ -20,13 +20,13 @@ public class testSetting {
     public static final String USER_password = "123123Qq";
     public static final String TEXT_MASSAGE = "новый текст сообщения";
     static {
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver\\chromedriver.exe");
+         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver\\chromedriver.exe");
 
     }
-    public static WebDriver driver = new ChromeDriver();
 
 
     public static void start(){
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         WebDriverRunner.setWebDriver(driver);
         Configuration.timeout = 6000;
@@ -43,9 +43,8 @@ public class testSetting {
         }
     }
     public static void close(){
-        driver.close();
         try {
-          WebDriverRunner.closeWebDriver();
+            WebDriverRunner.closeWebDriver();
         } catch (NullPointerException e){
             System.out.println(e);
         }

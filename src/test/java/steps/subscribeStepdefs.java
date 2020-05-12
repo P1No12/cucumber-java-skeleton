@@ -35,21 +35,21 @@ public class subscribeStepdefs {
                 .getElementByName("Выбранный топик")
                 .getAttribute("href")
                 .replaceAll("https:\\/\\/dev.n7lanit.ru",""));
-        testSetting.screenshot();
+
     }
 
     @И("на {string} в выпадающем меню нажать {string}")
     public void наВВыпадающемМенюНажать(String str, String sub) throws ClassNotFoundException, InterruptedException {
         Thread.sleep(800);
         getPageByTitle(str).getElementByName(sub).should(visible).click();
-        testSetting.screenshot();
+
     }
 
     @И("на {string} нажать на кнопку {string}")
     public void наНажатьНаКнопку(String str, String subscribes) throws ClassNotFoundException, InterruptedException {
         Thread.sleep(800);
         getPageByTitle(str).getElementByName(subscribes).should(visible).click();
-        testSetting.screenshot();
+
     }
 
     @И("Проверить – что среди отображающихся подписок есть те, на которые вы подписались ранее в этом сценарии")
@@ -72,7 +72,7 @@ public class subscribeStepdefs {
             $(By.xpath("//*[@href='"+ s +"']/ancestor::div[4]//*[@class='col-sm-2 col-md-2 hidden-xs']//*[@class='col-xs-12 hidden-xs hidden-sm']" +
                     "//button[@type='button']")).click();
             getPageByTitle(str).getElementByName(unsubscribe).click();
-            testSetting.screenshot();
+
         }
 
     }

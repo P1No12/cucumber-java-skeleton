@@ -26,10 +26,6 @@ public class HookTest {
     public void before() {
       start();
     }
-    @BeforeStep
-    public void beforeStep(){
-        testSetting.screenshot();
-    }
 
     @After
     public void after(cucumber.api.Scenario scenario) {
