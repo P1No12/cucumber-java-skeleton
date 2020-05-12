@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.ElementsContainer;
 import com.codeborne.selenide.SelenideElement;
+import cucumber.api.java.bs.A;
 import cucumber.api.java.ru.И;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -15,10 +16,11 @@ import java.util.List;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static page.AbstractPage.getPageByTitle;
 public class subscribeStepdefs {
     List<String> listSubscribe = new ArrayList<>();
-
+    List<SelenideElement> collection = new ArrayList<>();
     @И("на {string} нажать на кнопку подписки {string}")
     public void наНажатьНаКнопкуПодписки(String str, String inactive) throws ClassNotFoundException, InterruptedException {
         Thread.sleep(800);
@@ -45,11 +47,13 @@ public class subscribeStepdefs {
     @И("Проверить – что среди отображающихся подписок есть те, на которые вы подписались ранее в этом сценарии")
     public void проверитьЧтоСредиОтображающихсяПодписокЕстьТеНаКоторыеВыПодписалисьРанееВЭтомСценарии() throws InterruptedException, ClassNotFoundException {
         Thread.sleep(800);
-
-        for(String s: listSubscribe){
+     /*   for (SelenideElement element: collection){
+           $(element.getAttribute("href"));
+            System.out.println("проверка объекта селенида");
+        }*/
+  /*      for(String s: listSubscribe){
             $(By.xpath("//*[@href='"+ s +"']")).should(Condition.visible);
-        }
-        Thread.sleep(2000);
+        }*/
     }
 
     @И("на {string} {string} от всех подписок на которые вы подписались ранее в этом сценарии")

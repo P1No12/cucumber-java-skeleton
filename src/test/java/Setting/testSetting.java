@@ -3,8 +3,15 @@ package Setting;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
+import com.google.common.io.Files;
+import io.qameta.allure.Attachment;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.io.File;
+import java.io.IOException;
 //import io.github.bonigarcia.wdm.ChromeDriverManager;
 
 public class testSetting {
@@ -23,6 +30,15 @@ public class testSetting {
        // Configuration.startMaximized= true;
     }
 
+    @Attachment(type = "image/png")
+    public static byte[] screenshot()/* throws IOException */ {
+        try {
+            File screen = ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.FILE);
+            return Files.toByteArray(screen);
+        } catch (IOException e) {
+            return null;
+        }
+    }
     public static void close(){
         WebDriverRunner.closeWebDriver();
     }
